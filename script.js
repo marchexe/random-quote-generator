@@ -25,16 +25,13 @@ const quoteElement = document.getElementById("quote");
 const usedIndexes = new Set();
 
 function getQuote() {
-    if (usedIndexes.size >= veritasQuotes.length) {
-        usedIndexes.clear();
-    }
+    if (usedIndexes.size >= veritasQuotes.length) usedIndexes.clear();
+
     while (true) {
         const randomIdx = Math.floor(Math.random() * veritasQuotes.length);
-
         if (usedIndexes.has(randomIdx)) continue;
-
+        
         quoteElement.textContent = veritasQuotes[randomIdx];
-        usedIndexes.add(randomIdx);
         break;
     }
 }
